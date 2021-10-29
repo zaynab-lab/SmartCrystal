@@ -23,6 +23,7 @@ export default function TopBar({ setMenu }) {
           cursor: pointer;
           width: fit-content;
           padding-top: 0.5rem;
+          line-height: 3rem;
         }
       `}</style>
     </>
