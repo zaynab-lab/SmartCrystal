@@ -7,7 +7,7 @@ const strategyList = [
     title: "Mission",
     logo: <FaBullseye />,
     pargraph:
-      "Developing the best products, use latest technologies to inspire and implement solutions to business."
+      "Developing the best products, using latest technologies to inspire and implement solutions to business."
   },
   {
     title: "Vision",
