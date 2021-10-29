@@ -1,16 +1,29 @@
-import MainContent from "../components/MainContent";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+import Home from "../components/Home";
+
+const Menu = dynamic(import("../components/Menu"));
+const About = dynamic(import("../components/About"));
+const Services = dynamic(import("../components/Services"));
+const Contact = dynamic(import("../components/Contact"));
 
 export default function IndexPage() {
+  const [menu, setMenu] = useState(false);
+  const [page, setPage] = useState("Home");
+
   return (
     <>
       <div className="page">
-        <MainContent />
+        {menu && <Menu setMenu={setMenu} setPage={setPage} name={page} />}
+        {page === "Home" && <Home setMenu={setMenu} menu={menu} />}
+        {page === "About" && <About setMenu={setMenu} menu={menu} />}
+        {page === "Services" && <Services setMenu={setMenu} menu={menu} />}
+        {page === "Contact" && <Contact setMenu={setMenu} menu={menu} />}
       </div>
       <style jsx>{`
         .page {
           height: 100vh;
-
-          overflow: hidden;
+          overflow: auto;
         }
       `}</style>
       <style jsx global>{`

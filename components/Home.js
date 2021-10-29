@@ -3,7 +3,7 @@ import { styles } from "../public/js/styles";
 import SmartCrystal from "./SmartCrystal";
 import You from "./You";
 
-export default function MainContent() {
+export default function Home({ setMenu, menu }) {
   const [next, setNext] = useState(1);
 
   return (
@@ -12,7 +12,7 @@ export default function MainContent() {
         {next === 1 && <You setNext={setNext} next={next} verb={"Have"} />}
         {next === 2 && <You setNext={setNext} next={next} verb={"Want"} />}
         {next === 3 && <You setNext={setNext} next={next} verb={"Need"} />}
-        {next === 4 && <SmartCrystal />}
+        {next === 4 && <SmartCrystal setMenu={setMenu} menu={menu} />}
       </div>
       <style jsx>{`
         .mainContainer {

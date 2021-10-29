@@ -1,16 +1,16 @@
 import Image from "next/image";
 import TopBar from "./TopBar";
 
-export default function SmartCrystal() {
+export default function SmartCrystal({ setMenu, menu }) {
   return (
     <>
-      <div className="top">
-        <TopBar />
-      </div>
+      {!menu && <TopBar setMenu={setMenu} />}
       <div className="Logo">
         <Image alt="" src="/img/Logo.svg" width="120" height="120" />
       </div>
-      <div className="Smart">Smart Crystal</div>
+      <div className="Smart">
+        Smart <span className="Crystal"> Crystal</span>
+      </div>
       <div className="We">We hold your hands to the world of Technology</div>
 
       <style jsx>{`
@@ -29,26 +29,17 @@ export default function SmartCrystal() {
           line-height: 12vw;
           text-align: center;
         }
-        .We {
+        .Crystal {
           opacity: 0;
           animation: opacity 1s linear 1s forwards;
+        }
+        .We {
+          opacity: 0;
+          animation: opacity 1s linear 1.5s forwards;
           font-size: 4vw;
           color: lightblue;
           text-align: center;
           padding: auto;
-        }
-
-        .arrow {
-          font-size: 12vw;
-          position: fixed;
-          right: 1rem;
-          opacity: 0;
-          animation: opacity 1s linear 4s forwards;
-          cursor: pointer;
-        }
-        .top {
-          opacity: 0;
-          animation: opacity 1s linear 2s forwards;
         }
 
         @keyframes opacity {
