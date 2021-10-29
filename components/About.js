@@ -1,3 +1,5 @@
+import { FaBullseye, FaEye, FaFlask } from "react-icons/fa";
+import { styles } from "../public/js/styles";
 import TopBar from "./TopBar";
 
 export default function About({ setMenu, menu }) {
@@ -5,12 +7,22 @@ export default function About({ setMenu, menu }) {
     <>
       {!menu && <TopBar setMenu={setMenu} />}
       <div className="pageContainer">
-        <div className="Strategy">Mission</div>
+        <div className="Strategy">
+          <div> Mission</div>
+          <div className="StrategyIcon">
+            <FaBullseye />
+          </div>
+        </div>
         <div className="StrategyParg">
           Developing the best products, use latest technologies to inspire and
           implement solutions to business.
         </div>
-        <div className="Strategy">Vision</div>
+        <div className="Strategy">
+          <div>Vision</div>
+          <div className="StrategyIcon">
+            <FaEye />
+          </div>
+        </div>
         <div className="StrategyParg">
           We are the most intimate and reliable place for web development
           services. Your website understands how the world sees you, so it
@@ -22,7 +34,12 @@ export default function About({ setMenu, menu }) {
           motivation is to provide a powerful website with a creative customer
           center web solution.
         </div>
-        <div className="Strategy">Values</div>
+        <div className="Strategy">
+          <div>Values</div>
+          <div className="StrategyIcon">
+            <FaFlask />
+          </div>
+        </div>
         <div className="StrategyParg">
           We believe in bringing innovation from imaginations in the market to
           enhance your online market and presence. We are here with the ideal
@@ -47,12 +64,18 @@ export default function About({ setMenu, menu }) {
         .Strategy {
           border-bottom: 0.5rem solid lightblue;
           width: fit-content;
+          ${styles.flexBothcenter}
+          gap:1rem
         }
         .StrategyParg {
           font-size: 1.2rem;
           padding: 1rem 0rem;
           text-align: justify;
           text-justify: inter-word;
+        }
+        .StrategyIcon {
+          font-size: 2.6rem;
+          line-height: 0;
         }
       `}</style>
     </>
