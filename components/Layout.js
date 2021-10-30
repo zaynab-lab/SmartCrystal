@@ -10,7 +10,8 @@ export default function Layout({ children }) {
   const [dark, setDark] = useRecoilState(darkState);
 
   useEffect(() => {
-    setDark(JSON.parse(localStorage.getItem("dark")));
+    localStorage.getItem("dark") !== null &&
+      setDark(JSON.parse(localStorage.getItem("dark")));
   }, [setDark]);
 
   return (
