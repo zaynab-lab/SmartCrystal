@@ -1,7 +1,11 @@
 import { FaArrowRight } from "react-icons/fa";
+import { useRecoilValue } from "recoil";
 import { styles } from "../public/js/styles";
+import { darkState } from "./Layout";
 
 export default function You({ setNext, next, verb }) {
+  const dark = useRecoilValue(darkState);
+
   return (
     <>
       <div className="YouContainer">
@@ -47,7 +51,7 @@ export default function You({ setNext, next, verb }) {
           width: fit-content;
           font-size: 16vw;
           line-height: 15vw;
-          color: lightblue;
+          color: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
         }
 
         .Verb {
@@ -67,7 +71,7 @@ export default function You({ setNext, next, verb }) {
           animation: opacity 1s linear 1s forwards;
         }
         .Gain {
-          background: lightblue;
+          background: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
           color: black;
         }
         .Tech {
@@ -83,7 +87,7 @@ export default function You({ setNext, next, verb }) {
 
         .Words {
           flex: 1 1 45%;
-          background: lightblue;
+          background: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
           color: black;
           text-align: center;
         }
@@ -104,6 +108,7 @@ export default function You({ setNext, next, verb }) {
           animation: opacity 1s linear 4s forwards;
           cursor: pointer;
           z-index: 2;
+          color: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
         }
 
         @keyframes wordChanger {

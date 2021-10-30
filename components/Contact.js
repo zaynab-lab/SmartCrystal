@@ -1,9 +1,6 @@
-import TopBar from "./TopBar";
-
-export default function Contact({ setMenu, menu }) {
+export default function Contact() {
   return (
     <>
-      {!menu && <TopBar setMenu={setMenu} />}
       <div className="pageContainer">Comming Soon</div>
 
       <style jsx>{`

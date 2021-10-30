@@ -1,6 +1,7 @@
 import { FaBullseye, FaEye, FaFlask } from "react-icons/fa";
+import { useRecoilValue } from "recoil";
 import { styles } from "../public/js/styles";
-import TopBar from "./TopBar";
+import { darkState } from "./Layout";
 
 const strategyList = [
   {
@@ -25,10 +26,10 @@ const strategyList = [
   }
 ];
 
-export default function About({ setMenu, menu }) {
+export default function About() {
+  const dark = useRecoilValue(darkState);
   return (
     <>
-      {!menu && <TopBar setMenu={setMenu} />}
       <div className="pageContainer">
         {strategyList.map((strategy, i) => (
           <div key={i} className="StrategyContainer">
@@ -52,7 +53,8 @@ export default function About({ setMenu, menu }) {
           flex: 1 1 20rem;
         }
         .StrategyTitle {
-          border-bottom: 0.5rem solid lightblue;
+          border-bottom: 0.5rem solid
+            ${dark ? styles.darkThemeColor : styles.lightThemeColor};
           width: fit-content;
           ${styles.flexBothcenter}
           ${styles.flexColumn}
@@ -62,7 +64,7 @@ export default function About({ setMenu, menu }) {
           padding: 1rem 0rem;
           text-align: justify;
           text-justify: inter-word;
-          color: lightblue;
+          color: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
         }
         .StrategyHead {
           ${styles.flexBothcenter}

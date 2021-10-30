@@ -1,7 +1,12 @@
 import Image from "next/image";
+import { useRecoilValue } from "recoil";
+import { styles } from "../public/js/styles";
+import { darkState } from "./Layout";
 import TopBar from "./TopBar";
 
 export default function SmartCrystal({ setMenu, menu }) {
+  const dark = useRecoilValue(darkState);
+
   return (
     <>
       {!menu && <TopBar setMenu={setMenu} />}
@@ -24,7 +29,7 @@ export default function SmartCrystal({ setMenu, menu }) {
           width: fit-content;
           padding: 2vw;
           font-size: 14vw;
-          color: #946345;
+          color: ${styles.primaryColor};
           width: 100%;
           line-height: 12vw;
           text-align: center;
@@ -37,7 +42,7 @@ export default function SmartCrystal({ setMenu, menu }) {
           opacity: 0;
           animation: opacity 1s linear 1.5s forwards;
           font-size: 4vw;
-          color: lightblue;
+          color: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
           text-align: center;
           padding: auto;
         }

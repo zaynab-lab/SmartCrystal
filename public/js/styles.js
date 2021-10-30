@@ -1,9 +1,9 @@
 export const styles = {
   // lineargradeint: "linear-gradient(45deg,#FF4588,#F96465,#ffba97)",
   lineargradeint: "linear-gradient(45deg,#FF4588,#F96465,#F38640)",
-  primaryColor: "#F38640",
-  secondaryColor: "#F96465",
-  thirdColor: "#FF4588",
+  primaryColor: "#946345",
+  darkThemeColor: "lightblue",
+  lightThemeColor: "#24a4ff",
   grey: "#8f8f8f",
   boxshadow:
     "-webkit-box-shadow: 0 0px 8px 0 grey;box-shadow: 0 0px 8px 0 grey;",

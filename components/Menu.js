@@ -1,11 +1,18 @@
+import { styles } from "../public/js/styles";
+import Link from "next/link";
+import { darkState } from "./Layout";
+import { useRecoilValue } from "recoil";
+
 const pageLists = [
-  { title: "Home", name: "Home" },
+  { title: "Home", name: "" },
   { title: "About us", name: "About" },
   { title: "Services", name: "Services" },
   { title: "Contact us", name: "Contact" }
 ];
 
-export default function Menu({ setMenu, setPage, name }) {
+export default function Menu({ setMenu, name }) {
+  const dark = useRecoilValue(darkState);
+
   return (
     <>
       <div className="menuContainer">
@@ -19,16 +26,18 @@ export default function Menu({ setMenu, setPage, name }) {
         </div>
         <div className="menuContent">
           {pageLists.map((page, i) => (
-            <div
-              key={i}
-              className={page.name === name ? page.name + " active" : page.name}
-              onClick={() => {
-                setPage(page.name);
-                setMenu(false);
-              }}
-            >
-              {page.title}
-            </div>
+            <Link key={i} href={`/${page.name}`} replace>
+              <div
+                className={
+                  page.name === name
+                    ? page.name + " active"
+                    : page.name + " pageName"
+                }
+                onClick={() => setMenu(false)}
+              >
+                {page.title}
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -54,6 +63,9 @@ export default function Menu({ setMenu, setPage, name }) {
           width: 15rem;
           white-space: nowrap;
         }
+        .pageName:hover {
+          color: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
+        }
 
         .Home {
           animation: menuItems 0.3s linear forwards;
@@ -71,14 +83,14 @@ export default function Menu({ setMenu, setPage, name }) {
           animation: menuItems 0.3s linear 0.9s forwards;
         }
         .active {
-          background: lightblue;
+          background: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
           color: black;
         }
+
         @keyframes menuContainr {
           0% {
             transform: translateX(-100vw);
           }
-
           100% {
             transform: translatX(0vw);
           }
