@@ -5,6 +5,6 @@ module.exports = withPWA({
   pwa: {
     dest: "public",
     register: true,
-    skipWaiting: false
+    skipWaiting: true
   }
 });

@@ -81,7 +81,7 @@ if (!self.define) {
     });
   };
 }
-define("./sw.js",['./workbox-1ffba242'], (function (workbox) { 'use strict';
+define("./sw.js",['../../sandbox/node_modules/workbox-routing/registerRoute.mjs', '../../sandbox/node_modules/workbox-strategies/NetworkFirst.mjs', '../../sandbox/node_modules/workbox-strategies/NetworkOnly.mjs', '../../sandbox/node_modules/workbox-core/clientsClaim.mjs'], (function (registerRoute_mjs, NetworkFirst_mjs, NetworkOnly_mjs, clientsClaim_mjs) { 'use strict';
 
   /**
   * Welcome to your Workbox-powered service worker!
@@ -97,8 +97,8 @@ define("./sw.js",['./workbox-1ffba242'], (function (workbox) { 'use strict';
 
   importScripts("fallback-development.js");
   self.skipWaiting();
-  workbox.clientsClaim();
-  workbox.registerRoute("/", new workbox.NetworkFirst({
+  clientsClaim_mjs.clientsClaim();
+  registerRoute_mjs.registerRoute("/", new NetworkFirst_mjs.NetworkFirst({
     "cacheName": "start-url",
     plugins: [{
       cacheWillUpdate: async ({
@@ -123,7 +123,7 @@ define("./sw.js",['./workbox-1ffba242'], (function (workbox) { 'use strict';
       }) => self.fallback(request)
     }]
   }), 'GET');
-  workbox.registerRoute(/.*/i, new workbox.NetworkOnly({
+  registerRoute_mjs.registerRoute(/.*/i, new NetworkOnly_mjs.NetworkOnly({
     "cacheName": "dev",
     plugins: [{
       handlerDidError: async ({
