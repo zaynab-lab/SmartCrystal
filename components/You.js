@@ -110,43 +110,68 @@ export default function You({ setNext, next, verb }) {
           z-index: 2;
           color: ${dark ? styles.darkThemeColor : styles.lightThemeColor};
         }
-
-        @keyframes wordChanger {
+        @-webkit-keyframes wordChanger {
           0% {
             content: "Big";
           }
-
           29% {
             opacity: 1;
             content: "Big";
           }
-
           30% {
             opacity: 0;
             content: "Great";
           }
-
           64% {
             opacity: 1;
             content: "Great";
           }
-
           65% {
             opacity: 0;
             content: "Smart";
           }
-
           100% {
             opacity: 1;
             content: "Smart";
           }
         }
-
+        @keyframes wordChanger {
+          0% {
+            content: "Big";
+          }
+          29% {
+            opacity: 1;
+            content: "Big";
+          }
+          30% {
+            opacity: 0;
+            content: "Great";
+          }
+          64% {
+            opacity: 1;
+            content: "Great";
+          }
+          65% {
+            opacity: 0;
+            content: "Smart";
+          }
+          100% {
+            opacity: 1;
+            content: "Smart";
+          }
+        }
+        @-webkit-keyframes opacity {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
         @keyframes opacity {
           0% {
             opacity: 0;
           }
-
           100% {
             opacity: 1;
           }

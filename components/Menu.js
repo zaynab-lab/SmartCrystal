@@ -90,23 +90,47 @@ export default function Menu({ setMenu, name }) {
           color: black;
         }
 
-        @keyframes menuContainr {
+        @-webkit-keyframes menuContainr {
           0% {
+            -webkit-transform: translateX(-100vw);
             transform: translateX(-100vw);
           }
           100% {
+            -webkit-transform: translatX(0vw);
             transform: translatX(0vw);
           }
         }
-
+        @keyframes menuContainr {
+          0% {
+            -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+          }
+          100% {
+            -webkit-transform: translatX(0vw);
+            transform: translatX(0vw);
+          }
+        }
+        @-webkit-keyframes menuItems {
+          0% {
+            opacity: 0;
+            -webkit-transform: translateX(-15rem);
+            transform: translateX(-15rem);
+          }
+          100% {
+            opacity: 1;
+            -webkit-transform: translatX(0rem);
+            transform: translatX(0rem);
+          }
+        }
         @keyframes menuItems {
           0% {
             opacity: 0;
+            -webkit-transform: translateX(-15rem);
             transform: translateX(-15rem);
           }
-
           100% {
             opacity: 1;
+            -webkit-transform: translatX(0rem);
             transform: translatX(0rem);
           }
         }
