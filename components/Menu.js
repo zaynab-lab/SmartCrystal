@@ -45,6 +45,9 @@ export default function Menu({ setMenu, name }) {
         .menuContainer {
           width: 100vw;
           height: 100vh;
+          position: fixed;
+          top: 0;
+          background: ${dark ? "black" : "white"};
           transition: width 2s;
           padding: 2vh 2rem;
           z-index: 10;
