@@ -1,14 +1,12 @@
 import TopBar from "../components/TopBar";
-import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import { useRecoilState } from "recoil";
 import { darkState } from "../components/Layout";
-
-const Menu = dynamic(import("../components/Menu"));
-const About = dynamic(import("../components/About"));
-const Services = dynamic(import("../components/Services"));
-const Contact = dynamic(import("../components/Contact"));
+import Menu from "../components/Menu";
+import About from "../components/About";
+import Services from "../components/Services";
+import Contact from "../components/Contact";
 
 export default function () {
   const [dark, setDark] = useRecoilState(darkState);

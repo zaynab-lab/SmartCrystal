@@ -1,8 +1,6 @@
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import Home from "../components/Home";
-
-const Menu = dynamic(import("../components/Menu"));
+import Menu from "../components/Menu";
 
 export default function IndexPage() {
   const [menu, setMenu] = useState(false);
